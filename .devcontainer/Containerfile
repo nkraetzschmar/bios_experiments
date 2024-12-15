@@ -1,0 +1,14 @@
+FROM debian:testing
+RUN apt-get update \
+&& apt-get install --no-install-recommends -y \
+	$([ "$(dpkg --print-architecture)" != amd64 ] && echo crossbuild-essential-amd64 || echo) \
+	bsdextrautils \
+	build-essential \
+	fdisk \
+	gawk \
+	gdb-multiarch \
+	git \
+	mtools \
+	nasm \
+	qemu-system-x86 \
+	;
